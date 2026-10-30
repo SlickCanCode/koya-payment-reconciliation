@@ -13,6 +13,7 @@ const lines = fs.readFileSync("payments.jsonl", "utf8").split("\n").filter((l) =
 for (const line of lines) {
   try {
     const event = JSON.parse(line);
+    
     if (!event.txn_id) continue;
     const existing = latestTransactions.get(event.txn_id);
 
